@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     
     <link rel="shortcut icon" href="icon.ico" >
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -33,10 +33,24 @@
         }
 
         body{
-          background-color: #fcfcfc;  
+            height:100%;
+            width: 100%;
+            background-color: #fcfcfc;
+            display: flex;
+            flex-direction: column;
+            min-height:100vh;
+        }
+
+        html{
+            height:10%;
+            width: 100%;
         }
 
         header{
+            width: auto;
+        }
+
+        .header{
             display: flex;
             flex-direction: row;
             align-items: flex-end;
@@ -45,6 +59,8 @@
             padding: 10px 20px 12px 80px;
             margin-bottom: 15px;
             box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
+            
+            position: relative;
         }
 
         h1{
@@ -92,7 +108,11 @@
 
         main{
             margin-left: 80px;
+            flex-grow:1;
+            position: relative;
         }
+
+        
         h3{
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 30px;
@@ -111,7 +131,7 @@
 
         footer{
 			font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-			font-size: 18px;
+            font-size: 18px;
 			color: white;
 			width:100%;
 			left: 0px;
@@ -122,17 +142,25 @@
 			text-align: center;
 			margin-top: 15px;
 			border: 0;
+            width: 100% !important;
 			}
+        .divFooter{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <header>
-        <img id="logo" src="logo.png" alt="Logo CompareSup" width="100px">
-        <div class="h1andh2">
-            <h1>CompareSup</h1>
-            <h2>Encontre o melhor custo-benefício</h2>
+        <div class="header">
+            <img id="logo" src="logo.png" alt="Logo CompareSup" width="100px">
+            <div class="h1andh2">
+                <h1>CompareSup</h1>
+                <h2>Encontre o melhor custo-benefício</h2>
+            </div>
         </div>
-        
     </header>
     <main>
     <div class="divH3">
@@ -143,20 +171,20 @@
             <form action="none" method="get" class="form">
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 1</p><input class="wheyInput" id="wheyBrand1" type="text" placeholder="Produto/Marca">
+                        <p>Suplemento 1</p><input class="wheyInput" id="wheyBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="wheyPortion1" type="number" placeholder="g" class="wheyInput">
+                        <p>Porção (g)</p><input id="wheyPortion1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Proteína (g/porção)</p><input id="wheyPTNgPortion1" type="number" placeholder="g" class="wheyInput">
+                        <p>Proteína (g/porção)</p><input id="wheyPTNgPortion1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheygPackage1');">
                     </div>
                     
                     <div class="inputTitle">
-                        <p>Massa embalagem (g)</p><input id="wheygPackage1" type="number" placeholder="g" class="wheyInput">
+                        <p>Massa embalagem (g)</p><input id="wheygPackage1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPrice1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço</p><input id="wheyPrice1" type="number" placeholder="R$ 0,00" class="wheyInput">
+                        <p>Preço</p><input id="wheyPrice1" type="number" placeholder="R$ 0,00" class="wheyInput" onkeyup="PressEnter('wheyBrand2');">
                     </div>
                     <div class="inputTitle">
                         <p>PTN (g/100g)</p><input id="wheyPTNg100g1" type="number" readonly class="wheyInput">
@@ -171,20 +199,20 @@
 
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 2</p><input class="wheyInput" id="wheyBrand2" type="text" placeholder="Produto/Marca">
+                        <p>Suplemento 2</p><input class="wheyInput" id="wheyBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion2');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="wheyPortion2" type="number" placeholder="g" class="wheyInput">
+                        <p>Porção (g)</p><input id="wheyPortion2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion2');">
                     </div>
                     <div class="inputTitle">
-                        <p>Proteína (g/porção)</p><input id="wheyPTNgPortion2" type="number" placeholder="g" class="wheyInput">
+                        <p>Proteína (g/porção)</p><input id="wheyPTNgPortion2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheygPackage2');">
                     </div>
                     
                     <div class="inputTitle">
-                        <p>Massa embalagem (g)</p><input id="wheygPackage2" type="number" placeholder="g" class="wheyInput">
+                        <p>Massa embalagem (g)</p><input id="wheygPackage2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPrice2');">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço</p><input id="wheyPrice2" type="number" placeholder="R$ 0,00" class="wheyInput">
+                        <p>Preço</p><input id="wheyPrice2" type="number" placeholder="R$ 0,00" class="wheyInput" onkeyup="PressEnter('wheyBrand3');">
                     </div>
                     <div class="inputTitle">
                         <p>PTN (g/100g)</p><input id="wheyPTNg100g2" type="number" readonly class="wheyInput">
@@ -199,17 +227,17 @@
 
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 3</p><input class="wheyInput" id="wheyBrand3" type="text" placeholder="Produto/Marca">
+                        <p>Suplemento 3</p><input class="wheyInput" id="wheyBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion3');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="wheyPortion3" type="number" placeholder="g" class="wheyInput">
+                        <p>Porção (g)</p><input id="wheyPortion3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion3');">
                     </div>
                     <div class="inputTitle">
-                        <p>Proteína (g/porção)</p><input id="wheyPTNgPortion3" type="number" placeholder="g" class="wheyInput">
+                        <p>Proteína (g/porção)</p><input id="wheyPTNgPortion3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheygPackage3');">
                     </div>
                     
                     <div class="inputTitle">
-                        <p>Massa embalagem (g)</p><input id="wheygPackage3" type="number" placeholder="g" class="wheyInput">
+                        <p>Massa embalagem (g)</p><input id="wheygPackage3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPrice3');">
                     </div>
                     <div class="inputTitle">
                         <p>Preço</p><input id="wheyPrice3" type="number" placeholder="R$ 0,00" class="wheyInput">
@@ -227,11 +255,13 @@
             </form>
         </div> 
     </main>
-    <footer>
-		<div>
-		© Copyright Alan da Cruz Assis da Silva</i>
-		</div>
-	</footer>
+    <div>
+        <footer>
+            <div class="divFooter">
+            © Copyright Alan da Cruz Assis da Silva</i>
+            </div>
+        </footer>
+    </div>
 
     <script>
         function resultWhey (){
@@ -359,6 +389,15 @@
 
             wheyPrice100gPTN3 = window.document.getElementById('wheyPrice100gPTN3')//local atribiution
             wheyPrice100gPTN3.value = wheyPrice100gPTN3var;
+        }
+    </script>
+    <script type="text/javascript">
+
+        function PressEnter(nextinputId){
+            if(event.keyCode == 13){
+                document.getElementById(nextinputId).focus();     
+                return false;           
+            }
         }
     </script>
 </body>
