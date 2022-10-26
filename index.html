@@ -140,6 +140,9 @@
         }
         .divH3{
             margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
         }
 
         input:read-only{
@@ -155,6 +158,11 @@
             margin-bottom: 25px;
             margin-top: 25px;
             max-width: 80%;
+        }
+
+        #pOmega3{
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
         form.p{
@@ -235,6 +243,7 @@
             <option value="PTN">Proteína &#9660;</option>
             <option value="Gluta">Glutamina &#9660;</option>
             <option value="BCAA">BCAA &#9660;</option>
+            <option value="Creat">Creatina &#9660;</option>
             <option value="CHO">Carboidrato &#9660;</option>
             <option value="Malto">Maltodextrina &#9660;</option>
             <option value="TCM">TCM &#9660;</option>
@@ -327,17 +336,124 @@
                     </div>
                 </fieldset>
             </form>
-        </div> 
+        </div>
+
         <section>
-            <p class="p">Além do preço, outras características como forma de apresentação (cápsula, sachê, pó), quantidade de lactose, emulsificante, entre outros podem interferir no custo-benefício</p>
+            <p class="p">Além do preço, outras características como forma de apresentação (cápsula, sachê, pó), quantidade de lactose, emulsificante, entre outros podem interferir no custo-benefício.</p>
             </br>
-            <p class="p">&#9888; Use ponto no lugar de vírgula </p>
+            <p class="p">&#9888; Use ponto no lugar de vírgula.</p>
+        </section>
+
+        <div class="subHeader">    
+            <div class="divH3">
+                <h3>Macronutriente: </h3><p id="pOmega3">Ômega 3</p>
+            </div>
+        </div> 
+        <div>
+            <form action="none" method="get" class="form" oninput="resultOmega()">
+                <fieldset class="fieldset">
+                    <div class="inputTitle">
+                        <p>Suplemento 1</p><input class="wheyInput" id="omegaBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>EPA (mg)</p><input id="omegaEPA1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>DHA (mg)</p><input id="omegaDHA1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPortion1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Porção (g)</p><input id="omegaPortion1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaPorcao1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Cápsula/embalagem (g)</p><input id="omegaCapsulaEmbalagem1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Preço</p><input id="omegaPrice1" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand2');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Ômega 3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wheyInput" readonly>
+                    </div>
+                    <div class="inputTitle">
+                        <p>Preço 1000 mg (R$)</p><input id="omegaPriceG1" type="number" placeholder="R$" class="wheyInput" readonly>
+                    </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p>Suplemento 2</p><input class="wheyInput" id="omegaBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>EPA (mg)</p><input id="omegaEPA2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>DHA (mg)</p><input id="omegaDHA2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPortion2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Porção (g)</p><input id="omegaPortion2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaPorcao2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsula/embalagem (g)</p><input id="omegaCapsulaEmbalagem2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço</p><input id="omegaPrice2" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Ômega 3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wheyInput" readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço 1000 mg (R$)</p><input id="omegaPriceG2" type="number" placeholder="R$" class="wheyInput" readonly>
+                        </div>
+                        </fieldset>
+
+                        <fieldset class="fieldset">
+                            <div class="inputTitle">
+                                <p>Suplemento 3</p><input class="wheyInput" id="omegaBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>EPA (mg)</p><input id="omegaEPA3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>DHA (mg)</p><input id="omegaDHA3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPortion3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Porção (g)</p><input id="omegaPortion3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaPorcao3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Cápsula/embalagem (g)</p><input id="omegaCapsulaEmbalagem3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Preço</p><input id="omegaPrice3" type="number" placeholder="R$ 0.00" class="wheyInput">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Ômega 3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wheyInput" readonly>
+                            </div>
+                            <div class="inputTitle">
+                                <p>Preço 1000 mg (R$)</p><input id="omegaPriceG3" type="number" placeholder="R$" class="wheyInput" readonly>
+                            </div>
+                            </fieldset>
+
+                    
+            </form>
+        </div>
+        <section>
+            <p class="p">Outras características como transparência da embalagem, razão entre EPA e DHA, certificação atestando isenção de metais pesados, quantidade de cápsulas por porção, presença de outras substâncias devem ser levados em conta.</p>
+            </br>
+            <p class="p">Converse com seu nutricionista.</p>
         </section>
         
     </main>
     <div>
         <section>
-            <p class="lastUpdated">Atualizado por último em 23/10/2022</p>
+            <p class="lastUpdated">Atualizado por último em 26/10/2022</p>
         </section>
         <footer>
             <div class="divFooter">
@@ -472,6 +588,125 @@
 
             wheyPrice100gPTN3 = window.document.getElementById('wheyPrice100gPTN3')//local atribiution
             wheyPrice100gPTN3.value = wheyPrice100gPTN3var;
+        }
+        function resultOmega (){
+             //SELECTION
+            let omegaBrand1 = document.getElementById('omegaBrand1');
+            let omegaBrand2 = document.getElementById('omegaBrand2');
+            let omegaBrand3 = document.getElementById('omegaBrand3'); 
+            
+            let omegaEPA1 = document.getElementById('omegaEPA1');
+            let omegaEPA2 = document.getElementById('omegaEPA2');
+            let omegaEPA3 = document.getElementById('omegaEPA3');
+            
+            let omegaDHA1 = document.getElementById('omegaDHA1');
+            let omegaDHA2 = document.getElementById('omegaDHA2');
+            let omegaDHA3 = document.getElementById('omegaDHA3');
+
+            let omegaPortion1 = document.getElementById('omegaPortion1');
+            let omegaPortion2 = document.getElementById('omegaPortion2');
+            let omegaPortion3 = document.getElementById('omegaPortion3');
+
+            let omegaCapsulaPorcao1 = document.getElementById('omegaCapsulaPorcao1');
+            let omegaCapsulaPorcao2 = document.getElementById('omegaCapsulaPorcao2');
+            let omegaCapsulaPorcao3 = document.getElementById('omegaCapsulaPorcao3');
+            
+            let omegaCapsulaEmbalagem1 = document.getElementById('omegaCapsulaEmbalagem1');
+            let omegaCapsulaEmbalagem2 = document.getElementById('omegaCapsulaEmbalagem2');
+            let omegaCapsulaEmbalagem3 = document.getElementById('omegaCapsulaEmbalagem3');
+
+            let omegaPrice1 = document.getElementById('omegaPrice1');
+            let omegaPrice2 = document.getElementById('omegaPrice2');
+            let omegaPrice3 = document.getElementById('omegaPrice3');
+
+            let omegaEmbalagem1 = document.getElementById('omegaEmbalagem1');
+            let omegaEmbalagem2 = document.getElementById('omegaEmbalagem2');
+            let omegaEmbalagem3 = document.getElementById('omegaEmbalagem3');
+            
+            let omegaPriceG1 = document.getElementById('omegaPriceG1');
+            let omegaPriceG2 = document.getElementById('omegaPriceG2');
+            let omegaPriceG3 = document.getElementById('omegaPriceG3');
+            
+            //VALUE ATRIBUITION
+            omegaBrand1 = omegaBrand1.value;
+            omegaBrand2 = omegaBrand2.value;
+            omegaBrand3 = omegaBrand3.value;
+
+            omegaEPA1 = parseFloat(omegaEPA1.value);
+            omegaEPA2 = parseFloat(omegaEPA2.value);
+            omegaEPA3 = parseFloat(omegaEPA3.value);
+
+            omegaDHA1 = parseFloat(omegaDHA1.value);
+            omegaDHA2 = parseFloat(omegaDHA2.value);
+            omegaDHA3 = parseFloat(omegaDHA3.value);
+
+            omegaPortion1 = parseFloat(omegaPortion1.value);
+            omegaPortion2 = parseFloat(omegaPortion2.value);
+            omegaPortion3 = parseFloat(omegaPortion3.value);
+
+            omegaCapsulaPorcao1 = parseFloat(omegaCapsulaPorcao1.value);
+            omegaCapsulaPorcao2 = parseFloat(omegaCapsulaPorcao2.value);
+            omegaCapsulaPorcao3 = parseFloat(omegaCapsulaPorcao3.value);
+
+            omegaCapsulaEmbalagem1 = parseFloat(omegaCapsulaEmbalagem1.value);
+            omegaCapsulaEmbalagem2 = parseFloat(omegaCapsulaEmbalagem2.value);
+            omegaCapsulaEmbalagem3 = parseFloat(omegaCapsulaEmbalagem3.value);
+
+            omegaPrice1 = parseFloat(omegaPrice1.value);
+            omegaPrice2 = parseFloat(omegaPrice2.value);
+            omegaPrice3 = parseFloat(omegaPrice3.value);
+
+            omegaEmbalagem1 = parseFloat(omegaEmbalagem1.value);
+            omegaEmbalagem2 = parseFloat(omegaEmbalagem2.value);
+            omegaEmbalagem3 = parseFloat(omegaEmbalagem3.value);
+
+            omegaPriceG1 = parseFloat(omegaPriceG1.value);
+            omegaPriceG2 = parseFloat(omegaPriceG2.value);
+            omegaPriceG3 = parseFloat(omegaPriceG3.value);
+            
+            //CALCULATION AREA 1
+
+            let omegaEmbalagem1var = ((omegaEPA1+omegaDHA1)/omegaCapsulaPorcao1*omegaCapsulaEmbalagem1);
+
+            let omegaPriceG1var = parseFloat(1000*omegaPrice1/omegaEmbalagem1var).toFixed(2);
+
+                  
+            //DISPLAY AREA 1
+            omegaEmbalagem1 = window.document.getElementById('omegaEmbalagem1')//local atribiution
+            omegaEmbalagem1.value=(omegaEmbalagem1var);
+
+            omegaPriceG1 = window.document.getElementById('omegaPriceG1')//local atribiution
+            omegaPriceG1.value = omegaPriceG1var;
+
+            //CALCULATION AREA 2
+
+            let omegaEmbalagem2var = ((omegaEPA2+omegaDHA2)/omegaCapsulaPorcao2*omegaCapsulaEmbalagem2);
+
+            let omegaPriceG2var = parseFloat(1000*omegaPrice2/omegaEmbalagem2var).toFixed(2);
+
+                
+            //DISPLAY AREA 2
+            omegaEmbalagem2 = window.document.getElementById('omegaEmbalagem2')//local atribiution
+            omegaEmbalagem2.value=(omegaEmbalagem2var);
+
+            omegaPriceG2 = window.document.getElementById('omegaPriceG2')//local atribiution
+            omegaPriceG2.value = omegaPriceG2var;
+
+            //CALCULATION AREA 3
+
+            let omegaEmbalagem3var = ((omegaEPA3+omegaDHA3)/omegaCapsulaPorcao3*omegaCapsulaEmbalagem3);
+
+            let omegaPriceG3var = parseFloat(1000*omegaPrice3/omegaEmbalagem3var).toFixed(2);
+
+                
+            //DISPLAY AREA 3
+            omegaEmbalagem3 = window.document.getElementById('omegaEmbalagem3')//local atribiution
+            omegaEmbalagem3.value=(omegaEmbalagem3var);
+
+            omegaPriceG3 = window.document.getElementById('omegaPriceG3')//local atribiution
+            omegaPriceG3.value = omegaPriceG3var;
+            
+            
         }
     </script>
     <script type="text/javascript">
