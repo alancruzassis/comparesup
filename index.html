@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=0.48">
     
     <link rel="shortcut icon" href="icon.ico" >
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -95,9 +95,9 @@
 
         .wheyInput{
             font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-size: medium;
+            font-size: 18px;
             height: 20px;
-            width: 215px;
+            width: 230px;
             padding: 2px;
             margin: 5px 0px 18px 0px;
             border-bottom: 1px solid red;
@@ -109,9 +109,16 @@
         
 
         main{
-            margin-left: 80px;
+            margin-left: 4%;
             flex-grow:1;
             position: relative;
+            color: #333333;
+        }
+
+        hr{
+            width: 94%;
+            float: left;
+            border: 1px solid #e8e8e8;
         }
 
         select#selectId{
@@ -165,15 +172,21 @@
             font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
-        form.p{
-            font-size: 19px;
+        form p{
+            font-size: 20px;
         }
+
+        form.p{
+            font-size: 16px;
+        }
+
+        
 
         .lastUpdated{
             font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color: #cbcbcb;
             font-size: small;
-            margin-left: 80px;
+            margin-left: 4%;
         }
 
         footer{
@@ -197,6 +210,28 @@
             align-items: center;
             justify-content: center;
         }
+
+        @media only screen and (max-width: 900px) {
+            
+            form p{
+            font-size: 21px;
+            }
+
+            .p{
+                font-size: 9px;
+                max-width: 94%;
+            }
+
+            p.lastUpdated{
+                font-size: 9px;
+            }
+
+            .wheyInput{
+                height: 30px;
+            }
+
+        }
+
     </style>
 </head>
 <body>
@@ -273,7 +308,7 @@
                         <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g1" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">Proteína</span>/embalagem (g)</p><input id="wheyPTNpackage1" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage1" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
                         <p>Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN1" type="number" placeholder="R$" class="wheyInput" readonly>
@@ -301,7 +336,7 @@
                         <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g2" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">Proteína</span>/embalagem (g)</p><input id="wheyPTNpackage2" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage2" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
                         <p>Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN2" type="number" placeholder="R$" class="wheyInput" readonly>
@@ -329,7 +364,7 @@
                         <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g3" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">Proteína</span>/embalagem (g)</p><input id="wheyPTNpackage3" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage3" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
                         <p>Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN3" type="number" placeholder="R$" class="wheyInput" readonly>
@@ -342,6 +377,10 @@
             <p class="p">Além do preço, outras características como forma de apresentação (cápsula, sachê, pó), quantidade de lactose, emulsificante, entre outros podem interferir no custo-benefício.</p>
             </br>
             <p class="p">&#9888; Use ponto no lugar de vírgula.</p>
+            </br>
+            <hr>
+            </br>
+            </br>
         </section>
 
         <div class="subHeader">    
@@ -374,7 +413,7 @@
                         <p>Preço</p><input id="omegaPrice1" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand2');">
                     </div>
                     <div class="inputTitle">
-                        <p>Ômega 3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wheyInput" readonly>
+                        <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wheyInput" readonly>
                     </div>
                     <div class="inputTitle">
                         <p>Preço 1000 mg (R$)</p><input id="omegaPriceG1" type="number" placeholder="R$" class="wheyInput" readonly>
@@ -404,7 +443,7 @@
                             <p>Preço</p><input id="omegaPrice2" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand3');">
                         </div>
                         <div class="inputTitle">
-                            <p>Ômega 3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wheyInput" readonly>
+                            <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wheyInput" readonly>
                         </div>
                         <div class="inputTitle">
                             <p>Preço 1000 mg (R$)</p><input id="omegaPriceG2" type="number" placeholder="R$" class="wheyInput" readonly>
@@ -434,7 +473,7 @@
                                 <p>Preço</p><input id="omegaPrice3" type="number" placeholder="R$ 0.00" class="wheyInput">
                             </div>
                             <div class="inputTitle">
-                                <p>Ômega 3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wheyInput" readonly>
+                                <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wheyInput" readonly>
                             </div>
                             <div class="inputTitle">
                                 <p>Preço 1000 mg (R$)</p><input id="omegaPriceG3" type="number" placeholder="R$" class="wheyInput" readonly>
@@ -453,7 +492,7 @@
     </main>
     <div>
         <section>
-            <p class="lastUpdated">Atualizado por último em 26/10/2022</p>
+            <p class="lastUpdated">Atualizado por último em 06/11/2022</p>
         </section>
         <footer>
             <div class="divFooter">
