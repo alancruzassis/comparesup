@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.48">
     
-    <link rel="shortcut icon" href="icon.ico" >
+    <link rel="shortcut icon" href="ico.ico" >
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <title>CompareSup</title>
@@ -53,7 +53,7 @@
         .header{
             display: flex;
             flex-direction: row;
-            align-items: flex-end;
+            align-items: center;
             background-color: #ffffff;
             color: #d21404;
             padding: 10px 20px 12px 80px;
@@ -96,7 +96,7 @@
         .wheyInput{
             font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 18px;
-            height: 20px;
+            height: 23px;
             width: 230px;
             padding: 2px;
             margin: 5px 0px 18px 0px;
@@ -167,6 +167,10 @@
             max-width: 80%;
         }
 
+        .bold{
+            font-weight: bold;
+        }
+
         #pOmega3{
             font-size: 20px;
             font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -213,6 +217,19 @@
 
         @media only screen and (max-width: 900px) {
             
+            .header{
+                height: 100px;
+            }
+
+            h1{
+            font-size: 43px;
+            }
+            
+            h2{
+            font-size: 20px; 
+            }
+
+
             form p{
             font-size: 21px;
             }
@@ -227,7 +244,7 @@
             }
 
             .wheyInput{
-                height: 30px;
+                height: 35px;
             }
 
         }
@@ -289,7 +306,7 @@
             <form action="none" method="get" class="form">
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 1</p><input class="wheyInput" id="wheyBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion1');">
+                        <p>Suplemento A</p><input class="wheyInput" id="wheyBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion1');">
                     </div>
                     <div class="inputTitle">
                         <p>Porção (g)</p><input id="wheyPortion1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion1');">
@@ -311,13 +328,13 @@
                         <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage1" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN1" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN1" type="number" placeholder="R$" class="wheyInput" readonly>
                     </div>
                 </fieldset>
 
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 2</p><input class="wheyInput" id="wheyBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion2');">
+                        <p>Suplemento B</p><input class="wheyInput" id="wheyBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion2');">
                     </div>
                     <div class="inputTitle">
                         <p>Porção (g)</p><input id="wheyPortion2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion2');">
@@ -339,13 +356,13 @@
                         <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage2" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN2" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN2" type="number" placeholder="R$" class="wheyInput" readonly>
                     </div>
                 </fieldset>
 
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 3</p><input class="wheyInput" id="wheyBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion3');">
+                        <p>Suplemento C</p><input class="wheyInput" id="wheyBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion3');">
                     </div>
                     <div class="inputTitle">
                         <p>Porção (g)</p><input id="wheyPortion3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion3');">
@@ -367,7 +384,7 @@
                         <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage3" type="number" readonly class="wheyInput">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN3" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN3" type="number" placeholder="R$" class="wheyInput" readonly>
                     </div>
                 </fieldset>
             </form>
@@ -392,7 +409,7 @@
             <form action="none" method="get" class="form" oninput="resultOmega()">
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento 1</p><input class="wheyInput" id="omegaBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA1');">
+                        <p>Suplemento A</p><input class="wheyInput" id="omegaBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA1');">
                     </div>
                     <div class="inputTitle">
                         <p>EPA (mg)</p><input id="omegaEPA1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA1');">
@@ -407,7 +424,7 @@
                         <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Cápsula/embalagem (g)</p><input id="omegaCapsulaEmbalagem1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice1');">
+                        <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice1');">
                     </div>
                     <div class="inputTitle">
                         <p>Preço</p><input id="omegaPrice1" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand2');">
@@ -416,13 +433,13 @@
                         <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wheyInput" readonly>
                     </div>
                     <div class="inputTitle">
-                        <p>Preço 1000 mg (R$)</p><input id="omegaPriceG1" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 1000 mg (R$)</p><input id="omegaPriceG1" type="number" placeholder="R$" class="wheyInput" readonly>
                     </div>
                     </fieldset>
 
                     <fieldset class="fieldset">
                         <div class="inputTitle">
-                            <p>Suplemento 2</p><input class="wheyInput" id="omegaBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA2');">
+                            <p>Suplemento B</p><input class="wheyInput" id="omegaBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA2');">
                         </div>
                         <div class="inputTitle">
                             <p>EPA (mg)</p><input id="omegaEPA2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA2');">
@@ -437,7 +454,7 @@
                             <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Cápsula/embalagem (g)</p><input id="omegaCapsulaEmbalagem2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice2');">
+                            <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice2');">
                         </div>
                         <div class="inputTitle">
                             <p>Preço</p><input id="omegaPrice2" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand3');">
@@ -446,13 +463,13 @@
                             <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wheyInput" readonly>
                         </div>
                         <div class="inputTitle">
-                            <p>Preço 1000 mg (R$)</p><input id="omegaPriceG2" type="number" placeholder="R$" class="wheyInput" readonly>
+                            <p class="bold">Preço 1000 mg (R$)</p><input id="omegaPriceG2" type="number" placeholder="R$" class="wheyInput" readonly>
                         </div>
                         </fieldset>
 
                         <fieldset class="fieldset">
                             <div class="inputTitle">
-                                <p>Suplemento 3</p><input class="wheyInput" id="omegaBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA3');">
+                                <p>Suplemento C</p><input class="wheyInput" id="omegaBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA3');">
                             </div>
                             <div class="inputTitle">
                                 <p>EPA (mg)</p><input id="omegaEPA3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA3');">
@@ -467,7 +484,7 @@
                                 <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem3');">
                             </div>
                             <div class="inputTitle">
-                                <p>Cápsula/embalagem (g)</p><input id="omegaCapsulaEmbalagem3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice3');">
+                                <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice3');">
                             </div>
                             <div class="inputTitle">
                                 <p>Preço</p><input id="omegaPrice3" type="number" placeholder="R$ 0.00" class="wheyInput">
@@ -476,7 +493,7 @@
                                 <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wheyInput" readonly>
                             </div>
                             <div class="inputTitle">
-                                <p>Preço 1000 mg (R$)</p><input id="omegaPriceG3" type="number" placeholder="R$" class="wheyInput" readonly>
+                                <p class="bold">Preço 1000 mg (R$)</p><input id="omegaPriceG3" type="number" placeholder="R$" class="wheyInput" readonly>
                             </div>
                             </fieldset>
 
@@ -484,7 +501,7 @@
             </form>
         </div>
         <section>
-            <p class="p">Outras características como transparência da embalagem, razão entre EPA e DHA, certificação atestando isenção de metais pesados, quantidade de cápsulas por porção, presença de outras substâncias devem ser levados em conta.</p>
+            <p class="p">Outras características como transparência da embalagem, razão entre EPA e DHA, certificação atestando isenção de metais pesados, quantidade de cápsulas por porção, adição de outras substâncias devem ser levados em conta.</p>
             </br>
             <p class="p">Converse com seu nutricionista.</p>
         </section>
@@ -492,11 +509,11 @@
     </main>
     <div>
         <section>
-            <p class="lastUpdated">Atualizado por último em 06/11/2022</p>
+            <p class="lastUpdated">Atualizado por último em 08/11/2022</p>
         </section>
         <footer>
             <div class="divFooter">
-            © Copyright Alan da Cruz Assis da Silva</i>
+            © Copyright UNEB
             </div>
         </footer>
     </div>
