@@ -35,7 +35,7 @@
         body{
             height:100%;
             width: 100%;
-            background-color: #fcfcfc;
+            background-color: #fefefe;
             display: flex;
             flex-direction: column;
             min-height:100vh;
@@ -79,7 +79,7 @@
         }
 
         img#logo{
-			width: 75px;
+			width: 80px;
 		}
 
         .form{
@@ -118,7 +118,7 @@
         hr{
             width: 94%;
             float: left;
-            border: 1px solid #e8e8e8;
+            border: 1px dashed #e8e8e8;
         }
 
         select#selectId{
@@ -505,11 +505,46 @@
             </br>
             <p class="p">Converse com seu nutricionista.</p>
         </section>
-        
+        <hr><br><br>
+        <div class="subHeader">
+            <div class="divH3">
+                <h3>Composto bioativo: </h3><p id="pOmega3">Cafeína</p>
+            </div>
+        </div>
+                <form action="none" method="get" class="form">
+                    <fieldset>
+                        <div class="inputTitle">
+                            <p>Suplemento A</p><input type="text" class="wheyInput" id="compostoBrand" placeholder="Produto/Marca" onkeyup="PressEnter('compostoMass');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cafeína/porção (mg)</p><input type="text" class="wheyInput" id="compostoMass" placeholder="0" onkeyup="PressEnter('compostoCapPorcao');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Porção (cápsula)</p><input type="text" class="wheyInput" id="compostoCapPorcao" placeholder="0" onkeyup="PressEnter('compostoCapEmb');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/Embalagem</p><input type="text" class="wheyInput" id="compostoCapEmb" placeholder="0" onkeyup="PressEnter('compostoPorcao');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Porção (cápsula)</p><input type="text" class="wheyInput" id="compostoPorcao" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço (R$)</p><input type="text" class="wheyInput" id="compostoPrecoEmb" placeholder="0">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cafeína/embalagem</p><input type="text" class="wheyInput" id="compostoEmbalagem" placeholder="0" readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço 100mg</p><input type="text" class="wheyInput" id="compostoPrecoMg" placeholder="0" readonly>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </main>
     <div>
         <section>
-            <p class="lastUpdated">Atualizado por último em 08/11/2022</p>
+            <p class="lastUpdated">Atualizado por último em 15/11/2022</p>
         </section>
         <footer>
             <div class="divFooter">
