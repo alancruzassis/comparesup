@@ -56,7 +56,7 @@
             align-items: center;
             background-color: #ffffff;
             color: #d21404;
-            padding: 10px 20px 12px 80px;
+            padding: 10px 20px 12px 3.5%;
             margin-bottom: 15px;
             box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
             
@@ -93,7 +93,7 @@
             margin-right: 10px;
         }
 
-        .wheyInput{
+        .wInput{
             font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 18px;
             height: 23px;
@@ -106,7 +106,11 @@
             border-right: none;
         }
 
-        
+        .lattes{
+            font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #333333;
+            
+        }        
 
         main{
             margin-left: 4%;
@@ -130,9 +134,21 @@
             margin: 5px 0px 18px 0px;
             border: 0;
             outline: none;
-            background-color: transparent;
+            background-color: #ffffff;
         }
         
+        select#selectId2{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            height: 40px;
+            width: 200px;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 0;
+            outline: none;
+            background-color: #ffffff;
+        }
+
         .subHeader{
             display: flex;
             flex-direction: row;
@@ -150,6 +166,17 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+        }
+        h4{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            margin-right: 10px;
+            margin-bottom: 30px;
+        }
+        .divH4{
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
         }
 
         input:read-only{
@@ -171,7 +198,7 @@
             font-weight: bold;
         }
 
-        #pOmega3{
+        .pOmega3{
             font-size: 20px;
             font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
@@ -184,6 +211,9 @@
             font-size: 16px;
         }
 
+        .siteInfo{
+            margin-top: 25px;
+        }
         
 
         .lastUpdated{
@@ -243,7 +273,7 @@
                 font-size: 9px;
             }
 
-            .wheyInput{
+            .wInput{
                 height: 35px;
             }
 
@@ -274,6 +304,28 @@
         span[11].innerHTML= selectId;
         
       }
+
+      function selector2() {
+        let selectId2 = document.getElementById('selectId2'); 
+        selectId2 = selectId2.value;
+        let span2 = document.getElementsByClassName('span2');
+        
+        //span = span.value;
+
+        span2[0].innerHTML= selectId2;
+        span2[1].innerHTML= selectId2;
+        span2[2].innerHTML= selectId2;
+        span2[3].innerHTML= selectId2;
+        span2[4].innerHTML= selectId2;
+        span2[5].innerHTML= selectId2;
+        span2[6].innerHTML= selectId2;
+        span2[7].innerHTML= selectId2;
+        span2[8].innerHTML= selectId2;
+        span2[9].innerHTML= selectId2;
+        span2[10].innerHTML= selectId2;
+        span2[11].innerHTML= selectId2;
+        
+      }
       
 
     </script>
@@ -289,7 +341,7 @@
     <main>
     <div class="subHeader">    
         <div class="divH3">
-            <h3>Macronutriente:</h3>
+            <h3>Macronutriente (pó):</h3>
         </div>
         <select name="select" id="selectId" onselect="selector()" oninput="selector()">
             <option value="PTN">Proteína &#9660;</option>
@@ -298,6 +350,7 @@
             <option value="Creat">Creatina &#9660;</option>
             <option value="CHO">Carboidrato &#9660;</option>
             <option value="Malto">Maltodextrina &#9660;</option>
+            <option value="Isom">Isomaltulose &#9660;</option>
             <option value="TCM">TCM &#9660;</option>
             <option value="Fibra">Fibra &#9660;</option>
         </select>
@@ -306,85 +359,85 @@
             <form action="none" method="get" class="form">
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento A</p><input class="wheyInput" id="wheyBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion1');">
+                        <p>Suplemento A</p><input class="wInput" id="wheyBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="wheyPortion1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion1');">
+                        <p>Porção (g)</p><input id="wheyPortion1" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPTNgPortion1');">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheygPackage1');">
+                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion1" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheygPackage1');">
                     </div>
                     
                     <div class="inputTitle">
-                        <p>Peso embalagem (g)</p><input id="wheygPackage1" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPrice1');">
+                        <p>Peso embalagem (g)</p><input id="wheygPackage1" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPrice1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço</p><input id="wheyPrice1" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('wheyBrand2');">
+                        <p>Preço</p><input id="wheyPrice1" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('wheyBrand2');">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g1" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g1" type="number" readonly class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage1" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage1" type="number" readonly class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p class="bold">Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN1" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 100 g <span class="span">PTN</span></p><input id="wheyPrice100gPTN1" type="number" placeholder="R$" class="wInput" readonly>
                     </div>
                 </fieldset>
 
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento B</p><input class="wheyInput" id="wheyBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion2');">
+                        <p>Suplemento B</p><input class="wInput" id="wheyBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion2');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="wheyPortion2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion2');">
+                        <p>Porção (g)</p><input id="wheyPortion2" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPTNgPortion2');">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheygPackage2');">
+                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion2" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheygPackage2');">
                     </div>
                     
                     <div class="inputTitle">
-                        <p>Peso embalagem (g)</p><input id="wheygPackage2" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPrice2');">
+                        <p>Peso embalagem (g)</p><input id="wheygPackage2" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPrice2');">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço</p><input id="wheyPrice2" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('wheyBrand3');">
+                        <p>Preço</p><input id="wheyPrice2" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('wheyBrand3');">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g2" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g2" type="number" readonly class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage2" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage2" type="number" readonly class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p class="bold">Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN2" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 100 g <span class="span">PTN</span></p><input id="wheyPrice100gPTN2" type="number" placeholder="R$" class="wInput" readonly>
                     </div>
                 </fieldset>
 
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento C</p><input class="wheyInput" id="wheyBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion3');">
+                        <p>Suplemento C</p><input class="wInput" id="wheyBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion3');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="wheyPortion3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPTNgPortion3');">
+                        <p>Porção (g)</p><input id="wheyPortion3" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPTNgPortion3');">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheygPackage3');">
+                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion3" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheygPackage3');">
                     </div>
                     
                     <div class="inputTitle">
-                        <p>Peso embalagem (g)</p><input id="wheygPackage3" type="number" placeholder="g" class="wheyInput" onkeyup="PressEnter('wheyPrice3');">
+                        <p>Peso embalagem (g)</p><input id="wheygPackage3" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPrice3');">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço</p><input id="wheyPrice3" type="number" placeholder="R$ 0.00" class="wheyInput">
+                        <p>Preço</p><input id="wheyPrice3" type="number" placeholder="R$ 0.00" class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g3" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span> (g/100g)</p><input id="wheyPTNg100g3" type="number" readonly class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage3" type="number" readonly class="wheyInput">
+                        <p><span class="span">PTN</span>/embalagem (g)</p><input id="wheyPTNpackage3" type="number" readonly class="wInput">
                     </div>
                     <div class="inputTitle">
-                        <p class="bold">Preço 100 g <span class="span">PTN</span> (R$)</p><input id="wheyPrice100gPTN3" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 100 g <span class="span">PTN</span></p><input id="wheyPrice100gPTN3" type="number" placeholder="R$" class="wInput" readonly>
                     </div>
                 </fieldset>
             </form>
@@ -402,100 +455,100 @@
 
         <div class="subHeader">    
             <div class="divH3">
-                <h3>Macronutriente: </h3><p id="pOmega3">Ômega 3</p>
+                <h3>Macronutriente (cápsula): </h3><p class="pOmega3">Ômega 3</p>
             </div>
         </div> 
         <div>
             <form action="none" method="get" class="form" oninput="resultOmega()">
                 <fieldset class="fieldset">
                     <div class="inputTitle">
-                        <p>Suplemento A</p><input class="wheyInput" id="omegaBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA1');">
+                        <p>Suplemento A</p><input class="wInput" id="omegaBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA1');">
                     </div>
                     <div class="inputTitle">
-                        <p>EPA (mg)</p><input id="omegaEPA1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA1');">
+                        <p>EPA (mg)</p><input id="omegaEPA1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaDHA1');">
                     </div>
                     <div class="inputTitle">
-                        <p>DHA (mg)</p><input id="omegaDHA1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPortion1');">
+                        <p>DHA (mg)</p><input id="omegaDHA1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPortion1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Porção (g)</p><input id="omegaPortion1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaPorcao1');">
+                        <p>Porção (g)</p><input id="omegaPortion1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaPorcao1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem1');">
+                        <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaEmbalagem1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem1" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice1');">
+                        <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPrice1');">
                     </div>
                     <div class="inputTitle">
-                        <p>Preço</p><input id="omegaPrice1" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand2');">
+                        <p>Preço</p><input id="omegaPrice1" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('omegaBrand2');">
                     </div>
                     <div class="inputTitle">
-                        <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wheyInput" readonly>
+                        <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wInput" readonly>
                     </div>
                     <div class="inputTitle">
-                        <p class="bold">Preço 1000 mg (R$)</p><input id="omegaPriceG1" type="number" placeholder="R$" class="wheyInput" readonly>
+                        <p class="bold">Preço 1000 mg</p><input id="omegaPriceG1" type="number" placeholder="R$" class="wInput" readonly>
                     </div>
                     </fieldset>
 
                     <fieldset class="fieldset">
                         <div class="inputTitle">
-                            <p>Suplemento B</p><input class="wheyInput" id="omegaBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA2');">
+                            <p>Suplemento B</p><input class="wInput" id="omegaBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA2');">
                         </div>
                         <div class="inputTitle">
-                            <p>EPA (mg)</p><input id="omegaEPA2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA2');">
+                            <p>EPA (mg)</p><input id="omegaEPA2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaDHA2');">
                         </div>
                         <div class="inputTitle">
-                            <p>DHA (mg)</p><input id="omegaDHA2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPortion2');">
+                            <p>DHA (mg)</p><input id="omegaDHA2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPortion2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Porção (g)</p><input id="omegaPortion2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaPorcao2');">
+                            <p>Porção (g)</p><input id="omegaPortion2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaPorcao2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem2');">
+                            <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaEmbalagem2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem2" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice2');">
+                            <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPrice2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Preço</p><input id="omegaPrice2" type="number" placeholder="R$ 0.00" class="wheyInput" onkeyup="PressEnter('omegaBrand3');">
+                            <p>Preço</p><input id="omegaPrice2" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('omegaBrand3');">
                         </div>
                         <div class="inputTitle">
-                            <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wheyInput" readonly>
+                            <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wInput" readonly>
                         </div>
                         <div class="inputTitle">
-                            <p class="bold">Preço 1000 mg (R$)</p><input id="omegaPriceG2" type="number" placeholder="R$" class="wheyInput" readonly>
+                            <p class="bold">Preço 1000 mg</p><input id="omegaPriceG2" type="number" placeholder="R$" class="wInput" readonly>
                         </div>
                         </fieldset>
 
-                        <fieldset class="fieldset">
+                    <fieldset class="fieldset">
                             <div class="inputTitle">
-                                <p>Suplemento C</p><input class="wheyInput" id="omegaBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA3');">
+                                <p>Suplemento C</p><input class="wInput" id="omegaBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA3');">
                             </div>
                             <div class="inputTitle">
-                                <p>EPA (mg)</p><input id="omegaEPA3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaDHA3');">
+                                <p>EPA (mg)</p><input id="omegaEPA3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaDHA3');">
                             </div>
                             <div class="inputTitle">
-                                <p>DHA (mg)</p><input id="omegaDHA3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPortion3');">
+                                <p>DHA (mg)</p><input id="omegaDHA3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPortion3');">
                             </div>
                             <div class="inputTitle">
-                                <p>Porção (g)</p><input id="omegaPortion3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaPorcao3');">
+                                <p>Porção (g)</p><input id="omegaPortion3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaPorcao3');">
                             </div>
                             <div class="inputTitle">
-                                <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaCapsulaEmbalagem3');">
+                                <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaEmbalagem3');">
                             </div>
                             <div class="inputTitle">
-                                <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem3" type="number" placeholder="0" class="wheyInput" onkeyup="PressEnter('omegaPrice3');">
+                                <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPrice3');">
                             </div>
                             <div class="inputTitle">
-                                <p>Preço</p><input id="omegaPrice3" type="number" placeholder="R$ 0.00" class="wheyInput">
+                                <p>Preço</p><input id="omegaPrice3" type="number" placeholder="R$ 0.00" class="wInput">
                             </div>
                             <div class="inputTitle">
-                                <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wheyInput" readonly>
+                                <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wInput" readonly>
                             </div>
                             <div class="inputTitle">
-                                <p class="bold">Preço 1000 mg (R$)</p><input id="omegaPriceG3" type="number" placeholder="R$" class="wheyInput" readonly>
+                                <p class="bold">Preço 1000 mg</p><input id="omegaPriceG3" type="number" placeholder="R$" class="wInput" readonly>
                             </div>
-                            </fieldset>
+                    </fieldset>
 
                     
             </form>
@@ -508,43 +561,106 @@
         <hr><br><br>
         <div class="subHeader">
             <div class="divH3">
-                <h3>Composto bioativo: </h3><p id="pOmega3">Cafeína</p>
+                <h3>Composto/Nutriente (cápsula): </h3>
             </div>
+            <div>
+                    <select name="select" id="selectId2" onselect="selector2()" oninput="selector2()">
+                        <option value="Cafeína">Cafeína &#9660;</option>
+                        <option value="Co-Q10">Coenzima Q10 &#9660;</option>
+                        <option value="Colág">Colágeno &#9660;</option>
+                        <option value="Resv">Resveratrol &#9660;</option>
+                        <option value="β-Caro">β-Caroteno &#9660;</option>
+                    </select>
+            </div>
+                
+            
         </div>
-                <form action="none" method="get" class="form">
-                    <fieldset>
+                <form action="none" method="get" class="form" oninput="resultComposto()">
+                    <fieldset class="fieldset">
                         <div class="inputTitle">
-                            <p>Suplemento A</p><input type="text" class="wheyInput" id="compostoBrand" placeholder="Produto/Marca" onkeyup="PressEnter('compostoMass');">
+                            <p>Suplemento A</p><input type="text" class="wInput" id="compostoBrand1" placeholder="Produto/Marca" onkeyup="PressEnter('compostoPortion1');">
                         </div>
                         <div class="inputTitle">
-                            <p>Cafeína/porção (mg)</p><input type="text" class="wheyInput" id="compostoMass" placeholder="0" onkeyup="PressEnter('compostoCapPorcao');">
+                            <p><span class="span2">Cafeína</span>/porção (mg)</p><input type="number" class="wInput" id="compostoPortion1" placeholder="0" onkeyup="PressEnter('compostoCapPortion1');">
                         </div>
                         <div class="inputTitle">
-                            <p>Porção (cápsula)</p><input type="text" class="wheyInput" id="compostoCapPorcao" placeholder="0" onkeyup="PressEnter('compostoCapEmb');">
+                            <p>Cápsulas/porção</p><input type="number" class="wInput" id="compostoCapPortion1" placeholder="0" onkeyup="PressEnter('compostoCapEmb1');">
                         </div>
                         <div class="inputTitle">
-                            <p>Cápsulas/Embalagem</p><input type="text" class="wheyInput" id="compostoCapEmb" placeholder="0" onkeyup="PressEnter('compostoPorcao');">
+                            <p>Cápsulas/embalagem</p><input type="number" class="wInput" id="compostoCapEmb1" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb1');">
                         </div>
                         <div class="inputTitle">
-                            <p>Porção (cápsula)</p><input type="text" class="wheyInput" id="compostoPorcao" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb');">
+                            <p>Preço (R$)</p><input type="number" class="wInput" id="compostoPrecoEmb1" placeholder="R$ 0.00" onkeyup="PressEnter('compostoBrand2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Preço (R$)</p><input type="text" class="wheyInput" id="compostoPrecoEmb" placeholder="0">
+                            <p><span class="span2">Cafeína</span>/embalagem</p><input type="number" class="wInput" id="compostoEmbalagem1"  readonly>
                         </div>
                         <div class="inputTitle">
-                            <p>Cafeína/embalagem</p><input type="text" class="wheyInput" id="compostoEmbalagem" placeholder="0" readonly>
+                            <p class="bold">Preço 1000 mg</p><input type="number" class="wInput" id="compostoPrecoMg1" placeholder="R$" readonly>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p>Suplemento B</p><input type="text" class="wInput" id="compostoBrand2" placeholder="Produto/Marca" onkeyup="PressEnter('compostoPortion2');">
                         </div>
                         <div class="inputTitle">
-                            <p>Preço 100mg</p><input type="text" class="wheyInput" id="compostoPrecoMg" placeholder="0" readonly>
+                            <p><span class="span2">Cafeína</span>/porção (mg)</p><input type="number" class="wInput" id="compostoPortion2" placeholder="0" onkeyup="PressEnter('compostoCapPortion2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input type="number" class="wInput" id="compostoCapPortion2" placeholder="0" onkeyup="PressEnter('compostoCapEmb2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/embalagem</p><input type="number" class="wInput" id="compostoCapEmb2" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço (R$)</p><input type="number" class="wInput" id="compostoPrecoEmb2" placeholder="R$ 0.00" onkeyup="PressEnter('compostoBrand3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p><span class="span2">Cafeína</span>/embalagem</p><input type="number" class="wInput" id="compostoEmbalagem2"  readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p class="bold">Preço 1000 mg</p><input type="number" class="wInput" id="compostoPrecoMg2" placeholder="R$" readonly>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p>Suplemento C</p><input type="text" class="wInput" id="compostoBrand3" placeholder="Produto/Marca" onkeyup="PressEnter('compostoPortion3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p><span class="span2">Cafeína</span>/porção (mg)</p><input type="number" class="wInput" id="compostoPortion3" placeholder="0" onkeyup="PressEnter('compostoCapPortion3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input type="number" class="wInput" id="compostoCapPortion3" placeholder="0" onkeyup="PressEnter('compostoCapEmb3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/embalagem</p><input type="number" class="wInput" id="compostoCapEmb3" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço (R$)</p><input type="number" class="wInput" id="compostoPrecoEmb3" placeholder="R$ 0.00">
+                        </div>
+                        <div class="inputTitle">
+                            <p><span class="span2">Cafeína</span>/embalagem</p><input type="number" class="wInput" id="compostoEmbalagem3"  readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p class="bold">Preço 1000 mg</p><input type="number" class="wInput" id="compostoPrecoMg3" placeholder="R$" readonly>
                         </div>
                     </fieldset>
                 </form>
             </div>
         </div>
+        <hr><br><br>
+        <div class="subHeader">    
+            <div class="divH4">
+                <h4>Criadores </h4>
+                <p class="pH4"><a class="lattes" href="http://lattes.cnpq.br/4993291222018594" target="_blank">Alan da Cruz Assis da Silva</a>; <a class="lattes" href="http://lattes.cnpq.br/9233726925633763" target="_blank">Ian Silva de Vasconcellos</a>; <a class="lattes" href="http://lattes.cnpq.br/4993291222018594" target="_blank"></a></p>
+            </div>
+        </div>
+    
     </main>
     <div>
-        <section>
+        <section class="siteInfo" style="display: flex; flex-direction: row;">
             <p class="lastUpdated">Atualizado por último em 15/11/2022</p>
+            <p class="lastUpdated" style="margin-left: 25%; color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/transformsolucoes/termos.pdf">Termos de uso</a></p>
         </section>
         <footer>
             <div class="divFooter">
@@ -797,6 +913,109 @@
             omegaPriceG3 = window.document.getElementById('omegaPriceG3')//local atribiution
             omegaPriceG3.value = omegaPriceG3var;
             
+            
+        }
+        function resultComposto (){
+             //SELECTION
+            let compostoBrand1 = document.getElementById('compostoBrand1');
+            let compostoBrand2 = document.getElementById('compostoBrand2');
+            let compostoBrand3 = document.getElementById('compostoBrand3'); 
+            
+            let compostoPortion1 = document.getElementById('compostoPortion1');
+            let compostoPortion2 = document.getElementById('compostoPortion2');
+            let compostoPortion3 = document.getElementById('compostoPortion3');
+
+            let compostoCapPortion1 = document.getElementById('compostoCapPortion1');
+            let compostoCapPortion2 = document.getElementById('compostoCapPortion2');
+            let compostoCapPortion3 = document.getElementById('compostoCapPortion3');
+            
+            let compostoCapEmb1 = document.getElementById('compostoCapEmb1');
+            let compostoCapEmb2 = document.getElementById('compostoCapEmb2');
+            let compostoCapEmb3 = document.getElementById('compostoCapEmb3');
+
+            let compostoPrecoEmb1 = document.getElementById('compostoPrecoEmb1');
+            let compostoPrecoEmb2 = document.getElementById('compostoPrecoEmb2');
+            let compostoPrecoEmb3 = document.getElementById('compostoPrecoEmb3');
+
+            let compostoEmbalagem1 = document.getElementById('compostoEmbalagem1');
+            let compostoEmbalagem2 = document.getElementById('compostoEmbalagem2');
+            let compostoEmbalagem3 = document.getElementById('compostoEmbalagem3');
+            
+            let compostoPrecoMg1 = document.getElementById('compostoPrecoMg1');
+            let compostoPrecoMg2 = document.getElementById('compostoPrecoMg2');
+            let compostoPrecoMg3 = document.getElementById('compostoPrecoMg3');
+            
+            //VALUE ATRIBUITION
+            compostoBrand1 = compostoBrand1.value;
+            compostoBrand2 = compostoBrand2.value;
+            compostoBrand3 = compostoBrand3.value;
+
+            compostoPortion1 = parseFloat(compostoPortion1.value);
+            compostoPortion2 = parseFloat(compostoPortion2.value);
+            compostoPortion3 = parseFloat(compostoPortion3.value);
+
+            compostoCapPortion1 = parseFloat(compostoCapPortion1.value);
+            compostoCapPortion2 = parseFloat(compostoCapPortion2.value);
+            compostoCapPortion3 = parseFloat(compostoCapPortion3.value);
+
+            compostoCapEmb1 = parseFloat(compostoCapEmb1.value);
+            compostoCapEmb2 = parseFloat(compostoCapEmb2.value);
+            compostoCapEmb3 = parseFloat(compostoCapEmb3.value);
+
+            compostoPrecoEmb1 = parseFloat(compostoPrecoEmb1.value);
+            compostoPrecoEmb2 = parseFloat(compostoPrecoEmb2.value);
+            compostoPrecoEmb3 = parseFloat(compostoPrecoEmb3.value);
+
+            compostoEmbalagem1 = parseFloat(compostoEmbalagem1.value);
+            compostoEmbalagem2 = parseFloat(compostoEmbalagem2.value);
+            compostoEmbalagem3 = parseFloat(compostoEmbalagem3.value);
+
+            compostoPrecoMg1 = parseFloat(compostoPrecoMg1.value);
+            compostoPrecoMg2 = parseFloat(compostoPrecoMg2.value);
+            compostoPrecoMg3 = parseFloat(compostoPrecoMg3.value);
+            
+            //CALCULATION AREA 1
+
+            let compostoEmbalagem1var = parseFloat(compostoCapEmb1/compostoCapPortion1*compostoPortion1).toFixed(2);
+
+            let compostoPrecoMg1var = parseFloat(compostoPrecoEmb1/compostoEmbalagem1var*1000).toFixed(2);
+
+                  
+            //DISPLAY AREA 1
+            compostoEmbalagem1 = window.document.getElementById('compostoEmbalagem1')//local atribiution
+            compostoEmbalagem1.value=(compostoEmbalagem1var);
+
+            compostoPrecoMg1 = window.document.getElementById('compostoPrecoMg1')//local atribiution
+            compostoPrecoMg1.value = compostoPrecoMg1var;
+
+            //CALCULATION AREA 2
+
+            let compostoEmbalagem2var = parseFloat(compostoCapEmb2/compostoCapPortion2*compostoPortion2).toFixed(2);
+
+            let compostoPrecoMg2var = parseFloat(compostoPrecoEmb2/compostoEmbalagem2var*1000).toFixed(2);
+
+                  
+            //DISPLAY AREA 2
+            compostoEmbalagem2 = window.document.getElementById('compostoEmbalagem2')//local atribiution
+            compostoEmbalagem2.value=(compostoEmbalagem2var);
+
+            compostoPrecoMg2 = window.document.getElementById('compostoPrecoMg2')//local atribiution
+            compostoPrecoMg2.value = compostoPrecoMg2var;
+
+            //CALCULATION AREA 3
+
+            let compostoEmbalagem3var = parseFloat(compostoCapEmb3/compostoCapPortion3*compostoPortion3).toFixed(2);
+
+            let compostoPrecoMg3var = parseFloat(compostoPrecoEmb3/compostoEmbalagem3var*1000).toFixed(2);
+
+                  
+            //DISPLAY AREA 3
+            compostoEmbalagem3 = window.document.getElementById('compostoEmbalagem3')//local atribiution
+            compostoEmbalagem3.value=(compostoEmbalagem3var);
+
+            compostoPrecoMg3 = window.document.getElementById('compostoPrecoMg3')//local atribiution
+            compostoPrecoMg3.value = compostoPrecoMg3var;
+
             
         }
     </script>
