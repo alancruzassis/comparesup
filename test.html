@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ficou fácil comparar suplementos e encontrar o melhor custo benefício. Não importa o quanto varie a quantidade, a porção ou a concentração. Vem pro Web APP desenvolvido na UNEB.">
+
+    <link rel="shortcut icon" href="ico.ico" >
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+
+    <title>CompareSup</title>
+
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        body{
+            height:100%;
+            width: 100%;
+            background-color: #fffffc;
+            display: flex;
+            flex-direction: column;
+            min-height:100vh;
+        }
+
+        html{
+            height:10%;
+            width: 100%;
+        }
+
+        header{
+            width: auto;
+        }
+
+        .header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: #ffffff;
+            color: #d21404;
+            padding: 10px 20px 5px 3.5%;
+            margin-bottom: 15px;
+            box-shadow: 0px 1px 2px 0px rgba(142, 142, 142, 0.75);
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .headerInside{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        h1{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        h2{
+            font-family: 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 24px; 
+        }
+
+        .h1andh2{
+            display: flex;
+            flex-direction: column;
+        }
+
+        img#logo{
+			width: 80px;
+		}
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .formDiv{
+            width: 90% !important;
+        }
+        .fieldset{
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+            margin-bottom: 3em;
+            margin-top: 2em;
+        }
+
+        .wInput{
+            font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            height: 23px;
+            width: 100%;
+            padding: 2px;
+            margin: 15px 0px 40px 0px;
+            border-bottom: 1px solid red;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .lattes{
+            font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #333333;
+            
+        }        
+
+        main{
+            margin-left: 4%;
+            flex-grow:1;
+            position: relative;
+            color: #333333;
+            width: 99%;
+        }
+
+        hr{
+            width: 94%;
+            float: left;
+            border: 1px dashed #e8e8e8;
+        }
+
+        select#selectId{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            height: 40px;
+            width: 160px;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 0;
+            outline: none;
+            background-color: #ffffff;
+        }
+        
+        select#selectId2{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            height: 40px;
+            width: 200px;
+            padding: 2px;
+            margin: 5px 0px 18px 0px;
+            border: 0;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .subHeader{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .formaFarmaceutica{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+       .formaFarmaceutica div a{
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            cursor: pointer;
+         }
+        .formaFarmaceutica div a:hover{
+            text-decoration: none;
+            color: #fefefe;
+         }
+
+        .formaFarmaceutica div{
+            padding: 5px;
+            background-color: #d21404;
+            margin: 10px;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            width: 150px;
+            height: 93px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0px 1px 3px 0.5px #d6c4c4;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .formaFarmaceutica div i{
+            font-size: 2em;
+        }
+        .formaFarmaceutica div:hover{
+            background-color: #c00;
+            border: 2px solid #d21404;            
+        }
+
+        h3{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 25px;
+        }
+        form h3{
+            margin-right: 10px;
+        }
+        .divH3{
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        h4{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            margin-right: 10px;
+            margin-bottom: 30px;
+        }
+        .divH4{
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .formDiv{
+            background-color: white;
+            border-radius: 7px;
+            padding: 5px;
+
+        }
+
+
+        input:read-only{
+            background-color: #e8e8e8;
+        }
+
+        textarea:focus, input:focus{
+            outline: none;
+        }
+
+        .p{
+            font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-bottom: 25px;
+            margin-top: 25px;
+            max-width: 80%;
+        }
+
+        .bold{
+            font-weight: bold;
+        }
+
+        .pOmega3{
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        form p{
+            font-size: 20px;
+        }
+
+        form.p{
+            font-size: 16px;
+        }
+
+        .siteInfo{
+            margin-top: 25px;
+        }
+        
+
+        .lastUpdated{
+            font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #cbcbcb;
+            font-size: small;
+            margin-left: 4%;
+        }
+
+        footer{
+			font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 18px;
+			color: white;
+			width:100%;
+			left: 0px;
+			min-width: 100%;
+			background-color: #d21404;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			text-align: center;
+			margin-top: 15px;
+			border: 0;
+			}
+        .divFooter{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 900px) {
+            
+            .header{
+                height: 100px;
+                width: 100%;
+            }
+
+            h1{
+            font-size: 43px;
+            }
+            
+            h2{
+            font-size: 1em 
+            }
+
+            h3{
+                font-size: 30px;
+            }
+
+            form p{
+            font-size: 21px;
+            }
+
+            .p{
+                font-size: 9px;
+                max-width: 94%;
+            }
+
+            p.lastUpdated{
+                font-size: 9px;
+            }
+
+            .wInput{
+                height: 35px;
+                font-size: 18px;
+            }
+
+            .inputTitle p{
+                font-size: 23px;
+            }
+
+            select#selectId, select#selectId2{
+                font-size: 29px;
+                width: fit-content;
+            }
+
+            .fieldset{
+            margin-right: 10px;
+            }
+
+            .formaFarmaceutica a{
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+      function selector() {
+        let selectId = document.getElementById('selectId'); 
+        selectId = selectId.value;
+        let span = document.getElementsByClassName('span');
+        
+        //span = span.value;
+
+        span[0].innerHTML= selectId;
+        span[1].innerHTML= selectId;
+        span[2].innerHTML= selectId;
+        span[3].innerHTML= selectId;
+        span[4].innerHTML= selectId;
+        span[5].innerHTML= selectId;
+        span[6].innerHTML= selectId;
+        span[7].innerHTML= selectId;
+        span[8].innerHTML= selectId;
+        span[9].innerHTML= selectId;
+        span[10].innerHTML= selectId;
+        span[11].innerHTML= selectId;
+        
+      }
+
+      function selector2() {
+        let selectId2 = document.getElementById('selectId2'); 
+        selectId2 = selectId2.value;
+        let span2 = document.getElementsByClassName('span2');
+        
+        //span = span.value;
+
+        span2[0].innerHTML= selectId2;
+        span2[1].innerHTML= selectId2;
+        span2[2].innerHTML= selectId2;
+        span2[3].innerHTML= selectId2;
+        span2[4].innerHTML= selectId2;
+        span2[5].innerHTML= selectId2;
+        span2[6].innerHTML= selectId2;
+        span2[7].innerHTML= selectId2;
+        span2[8].innerHTML= selectId2;
+        span2[9].innerHTML= selectId2;
+        span2[10].innerHTML= selectId2;
+        span2[11].innerHTML= selectId2;
+        
+      }
+      
+
+    </script>
+    <header>
+        <div class="header">
+        <div class="headerInside">
+            <img id="logo" src="logo.png" alt="Logo CompareSup" width="100px">
+            <div class="h1andh2">
+                <h1>CompareSup</h1>
+                <h2>Encontre o melhor custo-benefício</h2>
+            </div>
+        </div>
+            
+        </div>
+    </header>
+    <main>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2em 0 2em 0; text-align: center;">
+            <h3>O que vamos comparar hoje?</h3>
+        </div>
+        <div class="formaFarmaceutica">
+            <div><i class="fa-solid fa-spoon"></i><a href="#macronutrientePo">Pó</a></div>
+            <div><i class="fa-solid fa-capsules"></i><a href="#capsula">Cápsula</a></div>
+        </div>    
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2em 0 2em 0; text-align: center;">
+            <h3>Que tipo de suplemento em <span id="macronutrientePo">pó</span>?</h3>
+        </div>
+        <select name="select" id="selectId" onselect="selector()" oninput="selector()">
+            <option value="g de PTN">Proteína &#9660;</option>
+            <option value=" kcal">Hipercalórico &#9660;</option>
+            <option value="g de Glutamina">Glutamina &#9660;</option>
+            <option value="g de BCAA">BCAA &#9660;</option>
+            <option value="g de Creat">Creatina &#9660;</option>
+            <option value="g de Carbo">Carboidrato &#9660;</option>
+            <option value="g de Malto">Maltodextrina &#9660;</option>
+            <option value="g de Isom">Isomaltulose &#9660;</option>
+            <option value="g de TCM">TCM &#9660;</option>
+            <option value="g de Fibra">Fibra &#9660;</option>
+        </select>   
+    </div>
+    
+    <!---->
+        <div class="formDiv">
+        <div class="divForm" oninput="resultWhey()">
+            <form action="none" method="get" class="form">
+                <fieldset class="fieldset">
+                    <div class="inputTitle">
+                        <p><b style="font-weight: bold;">Suplemento A</b></p><input class="wInput" id="wheyBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Porção (g)</p><input id="wheyPortion1" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPTNgPortion1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion1" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheygPackage1');">
+                    </div>
+                    
+                    <div class="inputTitle">
+                        <p>Peso da embalagem (g)</p><input id="wheygPackage1" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPrice1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Preço do suplemento (R$)</p><input id="wheyPrice1" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('wheyBrand2');">
+                    </div>
+                    <div class="inputTitle" style="display: none;">
+                        <p><span class="span">g de PTN</span> (g/100g)</p><input id="wheyPTNg100g1" type="number" readonly class="wInput">
+                    </div>
+                    <div class="inputTitle" style="display: none;">
+                        <p><span class="span">g de PTN</span>/embalagem (g)</p><input id="wheyPTNpackage1" type="number" readonly class="wInput">
+                    </div>
+                    <div class="inputTitle">
+                        <p class="bold">Preço por 100<span class="span">g de PTN</span></p><input id="wheyPrice100gPTN1" type="text" placeholder="R$" class="wInput" readonly style="margin-bottom: 0 !important;">
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <div class="inputTitle">
+                        <p><b style="font-weight: bold;">Suplemento B</b></p><input class="wInput" id="wheyBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion2');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Porção (g)</p><input id="wheyPortion2" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPTNgPortion2');">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion2" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheygPackage2');">
+                    </div>
+                    
+                    <div class="inputTitle">
+                        <p>Peso da embalagem (g)</p><input id="wheygPackage2" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPrice2');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Preço do suplemento (R$)</p><input id="wheyPrice2" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('wheyBrand3');">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">g de PTN</span> (g/100g)</p><input id="wheyPTNg100g2" type="number" readonly class="wInput">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">g de PTN</span>/embalagem (g)</p><input id="wheyPTNpackage2" type="number" readonly class="wInput">
+                    </div>
+                    <div class="inputTitle">
+                        <p class="bold">Preço por 100<span class="span">g de PTN</span></p><input id="wheyPrice100gPTN2" type="text" placeholder="R$" class="wInput" readonly style="margin-bottom: 0 !important;">
+                    </div>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <div class="inputTitle">
+                        <p><b style="font-weight: bold;">Suplemento C</b></p><input class="wInput" id="wheyBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('wheyPortion3');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Porção (g)</p><input id="wheyPortion3" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPTNgPortion3');">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">Proteína</span> (g/porção)</p><input id="wheyPTNgPortion3" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheygPackage3');">
+                    </div>
+                    
+                    <div class="inputTitle">
+                        <p>Peso da embalagem (g)</p><input id="wheygPackage3" type="number" placeholder="g" class="wInput" onkeyup="PressEnter('wheyPrice3');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Preço do suplemento (R$)</p><input id="wheyPrice3" type="number" placeholder="R$ 0.00" class="wInput">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">g de PTN</span> (g/100g)</p><input id="wheyPTNg100g3" type="number" readonly class="wInput">
+                    </div>
+                    <div class="inputTitle">
+                        <p><span class="span">g de PTN</span>/embalagem (g)</p><input id="wheyPTNpackage3" type="number" readonly class="wInput">
+                    </div>
+                    <div class="inputTitle">
+                        <p class="bold">Preço por 100<span class="span">g de PTN</span></p><input id="wheyPrice100gPTN3" type="text" placeholder="R$" class="wInput" readonly style="margin-bottom: 0 !important;">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+        <section>
+            <p class="p">Além do preço, outras características como forma de apresentação (cápsula, sachê, pó), quantidade de lactose, emulsificante, entre outros podem interferir no custo-benefício.</p>
+            </br>
+            <p class="p">&#9888; Use ponto no lugar de vírgula.</p>
+            </br>
+            <hr>
+            </br>
+            </br>
+        </section>
+
+        <div class="subHeader">    
+            <div class="divH3">
+                <h3 id="capsulaomega3">Cápsula: Ômega 3</h3>
+            </div>
+        </div> 
+        <div class="formDiv">
+            <form action="none" method="get" class="form" oninput="resultOmega()">
+                <fieldset class="fieldset">
+                    <div class="inputTitle">
+                        <p><b style="font-weight: bold;">Suplemento A</b></p><input class="wInput" id="omegaBrand1" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>EPA (mg)</p><input id="omegaEPA1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaDHA1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>DHA (mg)</p><input id="omegaDHA1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPortion1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Porção (g)</p><input id="omegaPortion1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaPorcao1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaEmbalagem1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem1" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPrice1');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>Preço do suplemento (R$)</p><input id="omegaPrice1" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('omegaBrand2');">
+                    </div>
+                    <div class="inputTitle">
+                        <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem1" type="number" readonly class="wInput" readonly>
+                    </div>
+                    <div class="inputTitle">
+                        <p class="bold">Preço 1000 mg</p><input id="omegaPriceG1" type="text" placeholder="R$" class="wInput" readonly>
+                    </div>
+                    </fieldset>
+
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p><b style="font-weight: bold;">Suplemento B</b></p><input class="wInput" id="omegaBrand2" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>EPA (mg)</p><input id="omegaEPA2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaDHA2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>DHA (mg)</p><input id="omegaDHA2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPortion2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Porção (g)</p><input id="omegaPortion2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaPorcao2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaEmbalagem2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem2" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPrice2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço do suplemento (R$)</p><input id="omegaPrice2" type="number" placeholder="R$ 0.00" class="wInput" onkeyup="PressEnter('omegaBrand3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem2" type="number" readonly class="wInput" readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p class="bold">Preço 1000 mg</p><input id="omegaPriceG2" type="text" placeholder="R$" class="wInput" readonly>
+                        </div>
+                        </fieldset>
+
+                    <fieldset class="fieldset">
+                            <div class="inputTitle">
+                                <p><b style="font-weight: bold;">Suplemento C</b></p><input class="wInput" id="omegaBrand3" type="text" placeholder="Produto/Marca" onkeyup="PressEnter('omegaEPA3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>EPA (mg)</p><input id="omegaEPA3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaDHA3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>DHA (mg)</p><input id="omegaDHA3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPortion3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Porção (g)</p><input id="omegaPortion3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaPorcao3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Cápsulas/porção</p><input id="omegaCapsulaPorcao3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaCapsulaEmbalagem3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Cápsula/embalagem</p><input id="omegaCapsulaEmbalagem3" type="number" placeholder="0" class="wInput" onkeyup="PressEnter('omegaPrice3');">
+                            </div>
+                            <div class="inputTitle">
+                                <p>Preço do suplemento (R$)</p><input id="omegaPrice3" type="number" placeholder="R$ 0.00" class="wInput">
+                            </div>
+                            <div class="inputTitle">
+                                <p>ω-3/embalagem (mg)</p><input id="omegaEmbalagem3" type="number" readonly class="wInput" readonly>
+                            </div>
+                            <div class="inputTitle">
+                                <p class="bold">Preço 1000 mg</p><input id="omegaPriceG3" type="text" placeholder="R$" class="wInput" readonly>
+                            </div>
+                    </fieldset>
+
+                    
+            </form>
+        </div>
+        <section>
+            <p class="p">Outras características como transparência da embalagem, razão entre EPA e DHA, certificação atestando isenção de metais pesados, quantidade de cápsulas por porção, adição de outras substâncias devem ser levados em conta.</p>
+            </br>
+            <p class="p">Converse com seu nutricionista.</p>
+        </section>
+        <hr>
+        <br>
+        <br>
+        <div class="subHeader" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2em 0 2em 0; text-align: center;">
+            <div class="divH3">
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 2em 0 2em 0; text-align: center;">
+                <h3 id="capsula">Que tipo de suplemento em <span id="macronutrientePo">cápsula</span>?</h3>
+           
+            </div>
+            <div>
+                    <select name="select" id="selectId2" onselect="selector2()" oninput="selector2()">
+                        <option value="Ácido fólico">Ácido fólico &#9660;</option>
+                        <option value="Biotina">Biotina &#9660;</option>
+                        <option value="Cafeína">Cafeína &#9660;</option>
+                        <option value="Cálcio">Cálcio &#9660;</option>
+                        <option value="Co-Q10">Coenzima Q10 &#9660;</option>
+                        <option value="Colágeno">Colágeno &#9660;</option>
+                        <option value="Melatonina">Melatonina &#9660;</option>
+                        <option value="Resveratrol">Resveratrol &#9660;</option>
+                        <option value="β-Caroteno">β-Caroteno &#9660;</option>
+                        <option value="Vitamina A">Vitamina A &#9660;</option>
+                        <option value="Vitamina B1">Vitamina B1 &#9660;</option>
+                        <option value="Vitamina B2">Vitamina B2 &#9660;</option>
+                        <option value="Vitamina B3">Vitamina B3 &#9660;</option>
+                        <option value="Vitamina B5">Vitamina B5 &#9660;</option>
+                        <option value="Vitamina B6">Vitamina B6 &#9660;</option>
+                        <option value="Vitamina D">Vitamina D &#9660;</option>
+                        <option value="Vitamina E">Vitamina E &#9660;</option>
+                        <option value="Zinco">Zinco &#9660;</option>
+                        
+                    </select>
+            </div>
+                
+            
+        </div>
+        <div class="formDiv">
+                <form action="none" method="get" class="form" oninput="resultComposto()">
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p><b style="font-weight: bold;">Suplemento A</b></p><input type="text" class="wInput" id="compostoBrand1" placeholder="Produto/Marca" onkeyup="PressEnter('compostoPortion1');">
+                        </div>
+                        <div class="inputTitle">
+                            <p><span class="span2">Cafeína</span>/porção (mg)</p><input type="number" class="wInput" id="compostoPortion1" placeholder="0" onkeyup="PressEnter('compostoCapPortion1');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input type="number" class="wInput" id="compostoCapPortion1" placeholder="0" onkeyup="PressEnter('compostoCapEmb1');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/embalagem</p><input type="number" class="wInput" id="compostoCapEmb1" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb1');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço (R$)</p><input type="number" class="wInput" id="compostoPrecoEmb1" placeholder="R$ 0.00" onkeyup="PressEnter('compostoBrand2');">
+                        </div>
+                        <div class="inputTitle" style="display: none;">
+                            <p><span class="span2">Cafeína</span>/embalagem</p><input type="number" class="wInput" id="compostoEmbalagem1"  readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p class="bold">Preço 1000 mg</p><input type="text" class="wInput" id="compostoPrecoMg1" placeholder="R$" readonly>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p><b style="font-weight: bold;">Suplemento B</b></p><input type="text" class="wInput" id="compostoBrand2" placeholder="Produto/Marca" onkeyup="PressEnter('compostoPortion2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p><span class="span2">Cafeína</span>/porção (mg)</p><input type="number" class="wInput" id="compostoPortion2" placeholder="0" onkeyup="PressEnter('compostoCapPortion2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input type="number" class="wInput" id="compostoCapPortion2" placeholder="0" onkeyup="PressEnter('compostoCapEmb2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/embalagem</p><input type="number" class="wInput" id="compostoCapEmb2" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb2');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço (R$)</p><input type="number" class="wInput" id="compostoPrecoEmb2" placeholder="R$ 0.00" onkeyup="PressEnter('compostoBrand3');">
+                        </div>
+                        <div class="inputTitle" style="display: none;">
+                            <p><span class="span2">Cafeína</span>/embalagem</p><input type="number" class="wInput" id="compostoEmbalagem2"  readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p class="bold">Preço 1000 mg</p><input type="text" class="wInput" id="compostoPrecoMg2" placeholder="R$" readonly>
+                        </div>
+                    </fieldset>
+                    <fieldset class="fieldset">
+                        <div class="inputTitle">
+                            <p><b style="font-weight: bold;">Suplemento C</b></p><input type="text" class="wInput" id="compostoBrand3" placeholder="Produto/Marca" onkeyup="PressEnter('compostoPortion3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p><span class="span2">Cafeína</span>/porção (mg)</p><input type="number" class="wInput" id="compostoPortion3" placeholder="0" onkeyup="PressEnter('compostoCapPortion3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/porção</p><input type="number" class="wInput" id="compostoCapPortion3" placeholder="0" onkeyup="PressEnter('compostoCapEmb3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Cápsulas/embalagem</p><input type="number" class="wInput" id="compostoCapEmb3" placeholder="0" onkeyup="PressEnter('compostoPrecoEmb3');">
+                        </div>
+                        <div class="inputTitle">
+                            <p>Preço (R$)</p><input type="number" class="wInput" id="compostoPrecoEmb3" placeholder="R$ 0.00">
+                        </div>
+                        <div class="inputTitle" style="display: none;">
+                            <p><span class="span2">Cafeína</span>/embalagem</p><input type="number" class="wInput" id="compostoEmbalagem3"  readonly>
+                        </div>
+                        <div class="inputTitle">
+                            <p class="bold">Preço 1000 mg</p><input type="text" class="wInput" id="compostoPrecoMg3" placeholder="R$" readonly>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            </div>
+        </div>
+        <hr><br><br>
+        <div class="subHeader">    
+            <div class="divH4">
+                <h4>Autor </h4>
+                <p class="pH4"><a class="lattes" href="http://alancruzassis.github.io" target="_blank">Dr. Alan Assis</a></p>
+            </div>
+        </div>
+    
+    </main>
+    <div>
+        <section class="siteInfo" style="display: flex; flex-direction: row;">
+            <p class="lastUpdated">Atualizado por último em 07/05/2023</p>
+            <p class="lastUpdated" style="margin-left: 25%; color: #333333;"><a style="color: gray;" class="simpleLink" href="https://alancruzassis.github.io/transformsolucoes/termos.pdf">Termos de uso</a></p>
+        </section>
+        <footer>
+            <div class="divFooter">
+            © 2023-2025 Dr. Alan Assis
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function resultWhey (){
+            //SELECTION
+            let wheyBrand1 = document.getElementById('wheyBrand1');
+            let wheyBrand2 = document.getElementById('wheyBrand2');
+            let wheyBrand3 = document.getElementById('wheyBrand3');
+            
+            let wheyPortion1 = document.getElementById('wheyPortion1');
+            let wheyPortion2 = document.getElementById('wheyPortion2');
+            let wheyPortion3 = document.getElementById('wheyPortion3');
+
+            let wheyPTNgPortion1 = document.getElementById('wheyPTNgPortion1');
+            let wheyPTNgPortion2 = document.getElementById('wheyPTNgPortion2');
+            let wheyPTNgPortion3 = document.getElementById('wheyPTNgPortion3');
+
+            let wheyPTNg100g1 = document.getElementById('wheyPTNg100g1');
+            let wheyPTNg100g2 = document.getElementById('wheyPTNg100g2');
+            let wheyPTNg100g3 = document.getElementById('wheyPTNg100g3');
+            
+            let wheygPackage1 = document.getElementById('wheygPackage1');
+            let wheygPackage2 = document.getElementById('wheygPackage2');
+            let wheygPackage3 = document.getElementById('wheygPackage3');
+
+            let wheyPrice1 = document.getElementById('wheyPrice1');
+            let wheyPrice2 = document.getElementById('wheyPrice2');
+            let wheyPrice3 = document.getElementById('wheyPrice3');
+
+            let wheyPTNpackage1 = document.getElementById('wheyPTNpackage1');
+            let wheyPTNpackage2 = document.getElementById('wheyPTNpackage2');
+            let wheyPTNpackage3 = document.getElementById('wheyPTNpackage3');
+
+            let wheyPrice100gPTN1 = document.getElementById('wheyPrice100gPTN1');
+            let wheyPrice100gPTN2 = document.getElementById('wheyPrice100gPTN2');
+            let wheyPrice100gPTN3 = document.getElementById('wheyPrice100gPTN3');
+            
+            
+            //VALUE ATRIBUITION
+            wheyBrand1 = wheyBrand1.value;
+            wheyBrand2 = wheyBrand2.value;
+            wheyBrand3 = wheyBrand3.value;
+
+            wheyPortion1 = wheyPortion1.value;
+            wheyPortion2 = wheyPortion2.value;
+            wheyPortion3 = wheyPortion3.value;
+
+            wheyPTNgPortion1 = wheyPTNgPortion1.value;
+            wheyPTNgPortion2 = wheyPTNgPortion2.value;
+            wheyPTNgPortion3 = wheyPTNgPortion3.value;
+
+            wheyPTNg100g1 = wheyPTNg100g1.value;
+            wheyPTNg100g2 = wheyPTNg100g2.value;
+            wheyPTNg100g3 = wheyPTNg100g3.value;
+
+            wheygPackage1 = wheygPackage1.value;
+            wheygPackage2 = wheygPackage2.value;
+            wheygPackage3 = wheygPackage3.value;
+
+            wheyPrice1 = wheyPrice1.value;
+            wheyPrice2 = wheyPrice2.value;
+            wheyPrice3 = wheyPrice3.value;
+
+            wheyPTNpackage1 = wheyPTNpackage1.value;
+            wheyPTNpackage2 = wheyPTNpackage2.value;
+            wheyPTNpackage3 = wheyPTNpackage3.value;
+            
+            wheyPrice100gPTN1 = wheyPrice100gPTN1.value;
+            wheyPrice100gPTN2 = wheyPrice100gPTN2.value;
+            wheyPrice100gPTN3 = wheyPrice100gPTN3.value;
+
+
+            //CALCULATION AREA 1
+
+            let PTNg100g1var = ((wheyPTNgPortion1 / wheyPortion1)*100).toFixed(2);
+
+            let wheygPackage1var = PTNg100g1var*wheygPackage1/100;
+
+            let wheyPrice100gPTN1var = parseFloat(wheyPrice1/wheygPackage1var*100).toFixed(2);
+
+                  
+            //DISPLAY AREA 1
+            wheyPTNg100g1 = window.document.getElementById('wheyPTNg100g1')//local atribiution
+            wheyPTNg100g1.value=(PTNg100g1var);
+
+            wheyPTNpackage1 = window.document.getElementById('wheyPTNpackage1')//local atribiution
+            wheyPTNpackage1.value = wheygPackage1var;
+
+            wheyPrice100gPTN1 = window.document.getElementById('wheyPrice100gPTN1')//local atribiution
+            wheyPrice100gPTN1.value = 'R$ '+wheyPrice100gPTN1var;
+
+            //CALCULATION AREA 2
+
+            let PTNg100g2var = ((wheyPTNgPortion2 / wheyPortion2)*100).toFixed(2);
+
+            let wheygPackage2var = PTNg100g2var*wheygPackage2/100;
+
+            let wheyPrice100gPTN2var = parseFloat(wheyPrice2/wheygPackage2var*100).toFixed(2);
+
+                       
+            //DISPLAY AREA 2
+            wheyPTNg100g2 = window.document.getElementById('wheyPTNg100g2')//local atribiution
+            wheyPTNg100g2.value=(PTNg100g2var);
+
+            wheyPTNpackage2 = window.document.getElementById('wheyPTNpackage2')//local atribiution
+            wheyPTNpackage2.value = wheygPackage2var;
+
+            wheyPrice100gPTN2 = window.document.getElementById('wheyPrice100gPTN2')//local atribiution
+            wheyPrice100gPTN2.value = 'R$ '+wheyPrice100gPTN2var;
+
+            //CALCULATION AREA 3
+
+            let PTNg100g3var = ((wheyPTNgPortion3 / wheyPortion3)*100).toFixed(2);
+
+            let wheygPackage3var = PTNg100g3var*wheygPackage3/100;
+
+            let wheyPrice100gPTN3var = parseFloat(wheyPrice3/wheygPackage3var*100).toFixed(2);
+
+                       
+            //DISPLAY AREA 3
+            wheyPTNg100g3 = window.document.getElementById('wheyPTNg100g3')//local atribiution
+            wheyPTNg100g3.value=(PTNg100g3var);
+
+            wheyPTNpackage3 = window.document.getElementById('wheyPTNpackage3')//local atribiution
+            wheyPTNpackage3.value = wheygPackage3var;
+
+            wheyPrice100gPTN3 = window.document.getElementById('wheyPrice100gPTN3')//local atribiution
+            wheyPrice100gPTN3.value = 'R$ '+wheyPrice100gPTN3var;
+        }
+        function resultOmega (){
+             //SELECTION
+            let omegaBrand1 = document.getElementById('omegaBrand1');
+            let omegaBrand2 = document.getElementById('omegaBrand2');
+            let omegaBrand3 = document.getElementById('omegaBrand3'); 
+            
+            let omegaEPA1 = document.getElementById('omegaEPA1');
+            let omegaEPA2 = document.getElementById('omegaEPA2');
+            let omegaEPA3 = document.getElementById('omegaEPA3');
+            
+            let omegaDHA1 = document.getElementById('omegaDHA1');
+            let omegaDHA2 = document.getElementById('omegaDHA2');
+            let omegaDHA3 = document.getElementById('omegaDHA3');
+
+            let omegaPortion1 = document.getElementById('omegaPortion1');
+            let omegaPortion2 = document.getElementById('omegaPortion2');
+            let omegaPortion3 = document.getElementById('omegaPortion3');
+
+            let omegaCapsulaPorcao1 = document.getElementById('omegaCapsulaPorcao1');
+            let omegaCapsulaPorcao2 = document.getElementById('omegaCapsulaPorcao2');
+            let omegaCapsulaPorcao3 = document.getElementById('omegaCapsulaPorcao3');
+            
+            let omegaCapsulaEmbalagem1 = document.getElementById('omegaCapsulaEmbalagem1');
+            let omegaCapsulaEmbalagem2 = document.getElementById('omegaCapsulaEmbalagem2');
+            let omegaCapsulaEmbalagem3 = document.getElementById('omegaCapsulaEmbalagem3');
+
+            let omegaPrice1 = document.getElementById('omegaPrice1');
+            let omegaPrice2 = document.getElementById('omegaPrice2');
+            let omegaPrice3 = document.getElementById('omegaPrice3');
+
+            let omegaEmbalagem1 = document.getElementById('omegaEmbalagem1');
+            let omegaEmbalagem2 = document.getElementById('omegaEmbalagem2');
+            let omegaEmbalagem3 = document.getElementById('omegaEmbalagem3');
+            
+            let omegaPriceG1 = document.getElementById('omegaPriceG1');
+            let omegaPriceG2 = document.getElementById('omegaPriceG2');
+            let omegaPriceG3 = document.getElementById('omegaPriceG3');
+            
+            //VALUE ATRIBUITION
+            omegaBrand1 = omegaBrand1.value;
+            omegaBrand2 = omegaBrand2.value;
+            omegaBrand3 = omegaBrand3.value;
+
+            omegaEPA1 = parseFloat(omegaEPA1.value);
+            omegaEPA2 = parseFloat(omegaEPA2.value);
+            omegaEPA3 = parseFloat(omegaEPA3.value);
+
+            omegaDHA1 = parseFloat(omegaDHA1.value);
+            omegaDHA2 = parseFloat(omegaDHA2.value);
+            omegaDHA3 = parseFloat(omegaDHA3.value);
+
+            omegaPortion1 = parseFloat(omegaPortion1.value);
+            omegaPortion2 = parseFloat(omegaPortion2.value);
+            omegaPortion3 = parseFloat(omegaPortion3.value);
+
+            omegaCapsulaPorcao1 = parseFloat(omegaCapsulaPorcao1.value);
+            omegaCapsulaPorcao2 = parseFloat(omegaCapsulaPorcao2.value);
+            omegaCapsulaPorcao3 = parseFloat(omegaCapsulaPorcao3.value);
+
+            omegaCapsulaEmbalagem1 = parseFloat(omegaCapsulaEmbalagem1.value);
+            omegaCapsulaEmbalagem2 = parseFloat(omegaCapsulaEmbalagem2.value);
+            omegaCapsulaEmbalagem3 = parseFloat(omegaCapsulaEmbalagem3.value);
+
+            omegaPrice1 = parseFloat(omegaPrice1.value);
+            omegaPrice2 = parseFloat(omegaPrice2.value);
+            omegaPrice3 = parseFloat(omegaPrice3.value);
+
+            omegaEmbalagem1 = parseFloat(omegaEmbalagem1.value);
+            omegaEmbalagem2 = parseFloat(omegaEmbalagem2.value);
+            omegaEmbalagem3 = parseFloat(omegaEmbalagem3.value);
+
+            omegaPriceG1 = parseFloat(omegaPriceG1.value);
+            omegaPriceG2 = parseFloat(omegaPriceG2.value);
+            omegaPriceG3 = parseFloat(omegaPriceG3.value);
+            
+            //CALCULATION AREA 1
+
+            let omegaEmbalagem1var = ((omegaEPA1+omegaDHA1)/omegaCapsulaPorcao1*omegaCapsulaEmbalagem1);
+
+            let omegaPriceG1var = parseFloat(1000*omegaPrice1/omegaEmbalagem1var).toFixed(2);
+
+                  
+            //DISPLAY AREA 1
+            omegaEmbalagem1 = window.document.getElementById('omegaEmbalagem1')//local atribiution
+            omegaEmbalagem1.value=(omegaEmbalagem1var);
+
+            omegaPriceG1 = window.document.getElementById('omegaPriceG1')//local atribiution
+            omegaPriceG1.value = 'R$ '+omegaPriceG1var;
+
+            //CALCULATION AREA 2
+
+            let omegaEmbalagem2var = ((omegaEPA2+omegaDHA2)/omegaCapsulaPorcao2*omegaCapsulaEmbalagem2);
+
+            let omegaPriceG2var = parseFloat(1000*omegaPrice2/omegaEmbalagem2var).toFixed(2);
+
+                
+            //DISPLAY AREA 2
+            omegaEmbalagem2 = window.document.getElementById('omegaEmbalagem2')//local atribiution
+            omegaEmbalagem2.value=(omegaEmbalagem2var);
+
+            omegaPriceG2 = window.document.getElementById('omegaPriceG2')//local atribiution
+            omegaPriceG2.value = 'R$ '+omegaPriceG2var;
+
+            //CALCULATION AREA 3
+
+            let omegaEmbalagem3var = ((omegaEPA3+omegaDHA3)/omegaCapsulaPorcao3*omegaCapsulaEmbalagem3);
+
+            let omegaPriceG3var = parseFloat(1000*omegaPrice3/omegaEmbalagem3var).toFixed(2);
+
+                
+            //DISPLAY AREA 3
+            omegaEmbalagem3 = window.document.getElementById('omegaEmbalagem3')//local atribiution
+            omegaEmbalagem3.value=(omegaEmbalagem3var);
+
+            omegaPriceG3 = window.document.getElementById('omegaPriceG3')//local atribiution
+            omegaPriceG3.value = 'R$ '+omegaPriceG3var;
+            
+            
+        }
+        function resultComposto (){
+             //SELECTION
+            let compostoBrand1 = document.getElementById('compostoBrand1');
+            let compostoBrand2 = document.getElementById('compostoBrand2');
+            let compostoBrand3 = document.getElementById('compostoBrand3'); 
+            
+            let compostoPortion1 = document.getElementById('compostoPortion1');
+            let compostoPortion2 = document.getElementById('compostoPortion2');
+            let compostoPortion3 = document.getElementById('compostoPortion3');
+
+            let compostoCapPortion1 = document.getElementById('compostoCapPortion1');
+            let compostoCapPortion2 = document.getElementById('compostoCapPortion2');
+            let compostoCapPortion3 = document.getElementById('compostoCapPortion3');
+            
+            let compostoCapEmb1 = document.getElementById('compostoCapEmb1');
+            let compostoCapEmb2 = document.getElementById('compostoCapEmb2');
+            let compostoCapEmb3 = document.getElementById('compostoCapEmb3');
+
+            let compostoPrecoEmb1 = document.getElementById('compostoPrecoEmb1');
+            let compostoPrecoEmb2 = document.getElementById('compostoPrecoEmb2');
+            let compostoPrecoEmb3 = document.getElementById('compostoPrecoEmb3');
+
+            let compostoEmbalagem1 = document.getElementById('compostoEmbalagem1');
+            let compostoEmbalagem2 = document.getElementById('compostoEmbalagem2');
+            let compostoEmbalagem3 = document.getElementById('compostoEmbalagem3');
+            
+            let compostoPrecoMg1 = document.getElementById('compostoPrecoMg1');
+            let compostoPrecoMg2 = document.getElementById('compostoPrecoMg2');
+            let compostoPrecoMg3 = document.getElementById('compostoPrecoMg3');
+            
+            //VALUE ATRIBUITION
+            compostoBrand1 = compostoBrand1.value;
+            compostoBrand2 = compostoBrand2.value;
+            compostoBrand3 = compostoBrand3.value;
+
+            compostoPortion1 = parseFloat(compostoPortion1.value);
+            compostoPortion2 = parseFloat(compostoPortion2.value);
+            compostoPortion3 = parseFloat(compostoPortion3.value);
+
+            compostoCapPortion1 = parseFloat(compostoCapPortion1.value);
+            compostoCapPortion2 = parseFloat(compostoCapPortion2.value);
+            compostoCapPortion3 = parseFloat(compostoCapPortion3.value);
+
+            compostoCapEmb1 = parseFloat(compostoCapEmb1.value);
+            compostoCapEmb2 = parseFloat(compostoCapEmb2.value);
+            compostoCapEmb3 = parseFloat(compostoCapEmb3.value);
+
+            compostoPrecoEmb1 = parseFloat(compostoPrecoEmb1.value);
+            compostoPrecoEmb2 = parseFloat(compostoPrecoEmb2.value);
+            compostoPrecoEmb3 = parseFloat(compostoPrecoEmb3.value);
+
+            compostoEmbalagem1 = parseFloat(compostoEmbalagem1.value);
+            compostoEmbalagem2 = parseFloat(compostoEmbalagem2.value);
+            compostoEmbalagem3 = parseFloat(compostoEmbalagem3.value);
+
+            compostoPrecoMg1 = parseFloat(compostoPrecoMg1.value);
+            compostoPrecoMg2 = parseFloat(compostoPrecoMg2.value);
+            compostoPrecoMg3 = parseFloat(compostoPrecoMg3.value);
+            
+            //CALCULATION AREA 1
+
+            let compostoEmbalagem1var = parseFloat(compostoCapEmb1/compostoCapPortion1*compostoPortion1).toFixed(2);
+
+            let compostoPrecoMg1var = parseFloat(compostoPrecoEmb1/compostoEmbalagem1var*1000).toFixed(2);
+
+                  
+            //DISPLAY AREA 1
+            compostoEmbalagem1 = window.document.getElementById('compostoEmbalagem1')//local atribiution
+            compostoEmbalagem1.value=(compostoEmbalagem1var);
+
+            compostoPrecoMg1 = window.document.getElementById('compostoPrecoMg1')//local atribiution
+            compostoPrecoMg1.value = 'R$ '+compostoPrecoMg1var;
+
+            //CALCULATION AREA 2
+
+            let compostoEmbalagem2var = parseFloat(compostoCapEmb2/compostoCapPortion2*compostoPortion2).toFixed(2);
+
+            let compostoPrecoMg2var = parseFloat(compostoPrecoEmb2/compostoEmbalagem2var*1000).toFixed(2);
+
+                  
+            //DISPLAY AREA 2
+            compostoEmbalagem2 = window.document.getElementById('compostoEmbalagem2')//local atribiution
+            compostoEmbalagem2.value=(compostoEmbalagem2var);
+
+            compostoPrecoMg2 = window.document.getElementById('compostoPrecoMg2')//local atribiution
+            compostoPrecoMg2.value = compostoPrecoMg2var;
+
+            //CALCULATION AREA 3
+
+            let compostoEmbalagem3var = parseFloat(compostoCapEmb3/compostoCapPortion3*compostoPortion3).toFixed(2);
+
+            let compostoPrecoMg3var = parseFloat(compostoPrecoEmb3/compostoEmbalagem3var*1000).toFixed(2);
+
+                  
+            //DISPLAY AREA 3
+            compostoEmbalagem3 = window.document.getElementById('compostoEmbalagem3')//local atribiution
+            compostoEmbalagem3.value=(compostoEmbalagem3var);
+
+            compostoPrecoMg3 = window.document.getElementById('compostoPrecoMg3')//local atribiution
+            compostoPrecoMg3.value = compostoPrecoMg3var;
+
+            
+        }
+    </script>
+    <script type="text/javascript">
+
+        function PressEnter(nextinputId){
+            if(event.keyCode == 13){
+                document.getElementById(nextinputId).focus();     
+                return false;           
+            }
+        }
+    </script>
+</body>
+</html>
